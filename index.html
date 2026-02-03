@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café do Porto - Cozy Café em São Paulo</title>
+    <meta name="description" content="Descubra o Café do Porto, um espaço acolhedor para café, refeições leves e momentos especiais em São Paulo. Ambiente moderno e convidativo.">
+    <meta name="keywords" content="café, restaurante, São Paulo, café da manhã, almoço, ambiente acolhedor">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Paleta de Cores Extraída: Tons quentes e neutros (marrom, creme, verde suave) */
+        :root {
+            --primary: #8B4513; /* Marrom escuro */
+            --secondary: #D2B48C; /* Marrom claro */
+            --accent: #228B22; /* Verde oliva */
+            --light: #F5F5DC; /* Creme */
+            --dark: #2F2F2F;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header e Navegação */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 245, 220, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px var(--shadow);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background: var(--light);
+            box-shadow: 2px 0 10px var(--shadow);
+            transition: left 0.3s ease;
+            z-index: 999;
+            padding: 2rem 1rem;
+        }
+        .side-menu.open {
+            left: 0;
+        }
+        .side-menu ul {
+            list-style: none;
+        }
+        .side-menu li {
+            margin: 1.5rem 0;
+        }
+        .side-menu a {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--dark);
+            transition: color 0.3s;
+        }
+        .side-menu a:hover {
+            color: var(--primary);
+        }
+        .side-menu i {
+            margin-right: 1rem;
+            width: 20px;
+        }
+
+        /* Seções */
+        section {
+            min-height: 100vh;
+            padding: 5rem 2rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .home {
+            background: url('https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .home .content {
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+        .home h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .home p {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .sobre, .galeria, .contato {
+            background: var(--light);
+        }
+        .sobre h2, .galeria h2, .contato h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        .sobre p {
+            max-width: 800px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .galeria .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .galeria img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .galeria img:hover {
+            transform: scale(1.05);
+        }
+
+        .contato .info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            max-width: 800px;
+        }
+        .contato .item {
+            flex: 1;
+            min-width: 200px;
+        }
+        .contato h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        .contato p {
+            margin-bottom: 1rem;
+        }
+        .whatsapp-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .whatsapp-btn:hover {
+            background: #1e6b1e;
+        }
+        .map {
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 800px;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .home h1 {
+                font-size: 2rem;
+            }
+            .home p {
+                font-size: 1.2rem;
+            }
+            .sobre h2, .galeria h2, .contato h2 {
+                font-size: 2rem;
+            }
+            .galeria .grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Animações Suaves */
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Café do Porto</div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <nav class="side-menu" id="sideMenu">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="#sobre"><i class="fas fa-info-circle"></i> Sobre</a></li>
+            <li><a href="#galeria"><i class="fas fa-images"></i> Galeria</a></li>
+            <li><a href="#contato"><i class="fas fa-phone"></i> Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="home">
+        <div class="content">
+            <h1>Café do Porto</h1>
+            <p>Um espaço acolhedor para momentos especiais</p>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre fade-in">
+        <h2>Sobre Nós</h2>
+        <p>O Café do Porto nasceu da paixão por criar um ambiente onde as pessoas possam se sentir em casa. Localizado no coração de São Paulo, oferecemos cafés especiais, refeições leves e um espaço moderno e convidativo para encontros e relaxamento.</p>
+        <p>Nossos valores giram em torno da qualidade, sustentabilidade e acolhimento. Utilizamos ingredientes frescos e locais, priorizando práticas eco-friendly. O que nos diferencia é o cuidado em cada detalhe, desde o aroma do café até o sorriso da nossa equipe.</p>
+        <p>Venha nos visitar e faça parte da nossa comunidade!</p>
+    </section>
+
+    <section id="galeria" class="galeria fade-in">
+        <h2>Galeria</h2>
+        <div class="grid">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior do Café">
+            <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Café e doces">
+            <img src="https://images.unsplash.com/photo-1559054665-8a9a7b7e9b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ambiente externo">
+            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Equipe sorridente">
+            <img src="https://images.unsplash.com/photo-1559054665-8a9a7b7e9b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Café da manhã">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Detalhes decorativos">
+        </div>
+    </section>
+
+    <section id="contato" class="contato fade-in">
+        <h2>Contato</h2>
+        <div class="info">
+            <div class="item">
+                <h3>Endereço</h3>
+                <p>Rua do Porto, 123 - Centro, São Paulo - SP</p>
+            </div>
+            <div class="item">
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sexta: 7h às 18h<br>Sábado e Domingo: 8h às 16h</p>
+            </div>
+            <div class="item">
+                <h3>Telefone</h3>
+                <p>(11) 99999-9999</p>
+                <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Fale Conosco</a>
+            </div>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.097!2d-46.6333!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1sen!2sbr!4v1630000000000!5m2!1sen!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <script>
+        // Menu Hamburger
+        const hamburger = document.getElementById('hamburger');
+        const sideMenu = document.getElementById('sideMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            sideMenu.classList.toggle('open');
+        });
+
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('.side-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                sideMenu.classList.remove('open');
+            });
+        });
+
+        // Animação de fade-in
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+              </html>
