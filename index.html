@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Café do Porto - Cozy Café em São Paulo</title>
-    <meta name="description" content="Descubra o Café do Porto, um espaço acolhedor para café, refeições leves e momentos especiais em São Paulo. Ambiente moderno e convidativo.">
-    <meta name="keywords" content="café, restaurante, São Paulo, café da manhã, almoço, ambiente acolhedor">
+    <title>Lancheira CIA 09 - Lanches Deliciosos em Pelotas</title>
+    <meta name="description" content="Venha conhecer a Lancheira CIA 09, o melhor lugar para lanches rápidos e saborosos em Pelotas. Hambúrgueres, salgados e muito mais em um ambiente descontraído.">
+    <meta name="keywords" content="lancheira, lanches, hambúrguer, salgados, Pelotas, RS, fast-food">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         /* Reset e Base */
@@ -18,10 +18,10 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f9f9f9;
+            background-color: #f4f4f4;
             overflow-x: hidden;
         }
         a {
@@ -33,13 +33,13 @@
             height: auto;
         }
 
-        /* Paleta de Cores Extraída: Tons quentes e neutros (marrom, creme, verde suave) */
+        /* Paleta de Cores Extraída/Inferida: Vibrante e energética (vermelho, amarelo, azul, branco) */
         :root {
-            --primary: #8B4513; /* Marrom escuro */
-            --secondary: #D2B48C; /* Marrom claro */
-            --accent: #228B22; /* Verde oliva */
-            --light: #F5F5DC; /* Creme */
-            --dark: #2F2F2F;
+            --primary: #D32F2F; /* Vermelho vibrante */
+            --secondary: #FFC107; /* Amarelo */
+            --accent: #1976D2; /* Azul */
+            --light: #FFFFFF; /* Branco */
+            --dark: #212121;
             --shadow: rgba(0, 0, 0, 0.1);
         }
 
@@ -48,7 +48,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(245, 245, 220, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem;
@@ -132,7 +132,7 @@
             text-align: center;
         }
         .home {
-            background: url('https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             background-attachment: fixed;
             position: relative;
         }
@@ -223,7 +223,7 @@
             transition: background 0.3s;
         }
         .whatsapp-btn:hover {
-            background: #1e6b1e;
+            background: #1565C0;
         }
         .map {
             margin-top: 2rem;
@@ -267,7 +267,7 @@
 </head>
 <body>
     <header>
-        <div class="logo">Café do Porto</div>
+        <div class="logo">Lancheira CIA 09</div>
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
@@ -286,27 +286,27 @@
 
     <section id="home" class="home">
         <div class="content">
-            <h1>Café do Porto</h1>
-            <p>Um espaço acolhedor para momentos especiais</p>
+            <h1>Lancheira CIA 09</h1>
+            <p>Lanches deliciosos e rápidos para todos os momentos</p>
         </div>
     </section>
 
     <section id="sobre" class="sobre fade-in">
         <h2>Sobre Nós</h2>
-        <p>O Café do Porto nasceu da paixão por criar um ambiente onde as pessoas possam se sentir em casa. Localizado no coração de São Paulo, oferecemos cafés especiais, refeições leves e um espaço moderno e convidativo para encontros e relaxamento.</p>
-        <p>Nossos valores giram em torno da qualidade, sustentabilidade e acolhimento. Utilizamos ingredientes frescos e locais, priorizando práticas eco-friendly. O que nos diferencia é o cuidado em cada detalhe, desde o aroma do café até o sorriso da nossa equipe.</p>
-        <p>Venha nos visitar e faça parte da nossa comunidade!</p>
+        <p>A Lancheira CIA 09 é o ponto de encontro perfeito para quem ama um bom lanche em Pelotas. Fundada com o objetivo de oferecer opções rápidas e saborosas, somos especialistas em hambúrgueres artesanais, salgados crocantes e bebidas refrescantes.</p>
+        <p>Nossos valores são simples: qualidade nos ingredientes, atendimento rápido e preços acessíveis. O que nos diferencia é o sabor único dos nossos lanches, preparados com carinho e frescor. Venha provar e se surpreender!</p>
+        <p>Seja para um lanche rápido ou um momento com amigos, estamos aqui para você.</p>
     </section>
 
     <section id="galeria" class="galeria fade-in">
         <h2>Galeria</h2>
         <div class="grid">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Interior do Café">
-            <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Café e doces">
-            <img src="https://images.unsplash.com/photo-1559054665-8a9a7b7e9b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ambiente externo">
-            <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Equipe sorridente">
-            <img src="https://images.unsplash.com/photo-1559054665-8a9a7b7e9b8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Café da manhã">
-            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Detalhes decorativos">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Hambúrguer artesanal">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb5723?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Salgados variados">
+            <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Ambiente interno">
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Equipe preparando lanches">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lanches prontos">
+            <img src="https://images.unsplash.com/photo-1551782450-17144efb5723?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bebidas e acompanhamentos">
         </div>
     </section>
 
@@ -315,20 +315,20 @@
         <div class="info">
             <div class="item">
                 <h3>Endereço</h3>
-                <p>Rua do Porto, 123 - Centro, São Paulo - SP</p>
+                <p>Rua da Lancheira, 09 - Centro, Pelotas - RS</p>
             </div>
             <div class="item">
                 <h3>Horário de Funcionamento</h3>
-                <p>Segunda a Sexta: 7h às 18h<br>Sábado e Domingo: 8h às 16h</p>
+                <p>Segunda a Domingo: 11h às 23h</p>
             </div>
             <div class="item">
                 <h3>Telefone</h3>
-                <p>(11) 99999-9999</p>
-                <a href="https://wa.me/5511999999999" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Fale Conosco</a>
+                <p>(53) 99999-9999</p>
+                <a href="https://wa.me/5553999999999" class="whatsapp-btn" target="_blank"><i class="fab fa-whatsapp"></i> Peça seu Lanche</a>
             </div>
         </div>
         <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.097!2d-46.6333!3d-23.5505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sS%C3%A3o%20Paulo%2C%20SP!5e0!3m2!1sen!2sbr!4v1630000000000!5m2!1sen!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3454.123!2d-52.3428!3d-31.7699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511b3c7b7b7b7b7%3A0x1234567890abcdef!2sPelotas%2C%20RS!5e0!3m2!1sen!2sbr!4v1630000000000!5m2!1sen!2sbr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
@@ -362,4 +362,4 @@
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
     </script>
 </body>
-              </html>
+</html>
