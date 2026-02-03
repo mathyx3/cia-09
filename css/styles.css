@@ -7,8 +7,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    color: #000000; /* Preto */
-    background-color: #FFFFFF; /* Branco */
+    color: #FFFFFF; /* Branco para fonte */
+    background-color: #2a2a2a; /* Preto acinzentado */
     overflow-x: hidden;
 }
 a {
@@ -20,13 +20,12 @@ img {
     height: auto;
 }
 
-/* Paleta de Cores: Preto, Branco, Dourado suave pouco pálido (#F4E4BC), Marrom fosco meio pálido (#DEB887) */
+/* Paleta de Cores: Preto acinzentado, Branco, Marrom forte pálido (#D2691E) */
 :root {
-    --primary: #000000; /* Preto */
-    --secondary: #F4E4BC; /* Dourado suave */
-    --accent: #DEB887; /* Marrom fosco */
+    --primary: #2a2a2a; /* Preto acinzentado */
+    --accent: #D2691E; /* Marrom forte pálido */
     --light: #FFFFFF; /* Branco */
-    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(0, 0, 0, 0.3); /* Sombra ajustada para contraste */
 }
 
 /* Header e Navegação */
@@ -34,7 +33,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(42, 42, 42, 0.95); /* Preto acinzentado com transparência */
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem;
@@ -46,8 +45,8 @@ header {
 .logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary);
-    text-shadow: 1px 1px 2px var(--secondary);
+    color: var(--light);
+    text-shadow: 1px 1px 2px var(--accent);
 }
 .hamburger {
     display: flex;
@@ -58,7 +57,7 @@ header {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: var(--primary);
+    background: var(--light);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -77,7 +76,7 @@ header {
     left: -300px;
     width: 300px;
     height: 100%;
-    background: var(--light);
+    background: var(--primary);
     box-shadow: 2px 0 10px var(--shadow);
     transition: left 0.3s ease;
     z-index: 999;
@@ -97,7 +96,7 @@ header {
     align-items: center;
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--primary);
+    color: var(--light);
     transition: color 0.3s, transform 0.3s;
 }
 .side-menu a:hover {
@@ -120,7 +119,7 @@ section {
     text-align: center;
 }
 .home {
-    background: url('assets/images/fundo-home.png') center/cover no-repeat;
+    background: url('assets/images/fundo-home.png') center/cover no-repeat, linear-gradient(45deg, #2a2a2a, #3a3a3a); /* Fallback para gradiente preto acinzentado se imagem não carregar */
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
@@ -132,12 +131,12 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(222, 184, 135, 0.5), rgba(244, 228, 188, 0.5));
+    background: linear-gradient(45deg, rgba(210, 105, 30, 0.3), rgba(42, 42, 42, 0.7)); /* Overlay com marrom e preto */
 }
 .home .content {
     position: relative;
     z-index: 1;
-    color: var(--primary);
+    color: var(--light);
 }
 .home h1 {
     font-size: 3rem;
@@ -153,8 +152,8 @@ section {
 .cta-btn {
     margin-top: 2rem;
     padding: 1rem 2rem;
-    background: var(--secondary);
-    color: var(--primary);
+    background: var(--accent);
+    color: var(--light);
     border-radius: 50px;
     font-weight: 700;
     cursor: pointer;
@@ -162,17 +161,17 @@ section {
     box-shadow: 0 4px 15px var(--shadow);
 }
 .cta-btn:hover {
-    background: var(--accent);
+    background: #b8651a; /* Tom mais escuro do marrom para hover */
     transform: scale(1.05);
 }
 
 .sobre, .cardapio, .galeria, .contato {
-    background: var(--light);
+    background: var(--primary);
 }
 .sobre h2, .cardapio h2, .galeria h2, .contato h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    color: var(--primary);
+    color: var(--light);
     position: relative;
 }
 .sobre h2::after, .cardapio h2::after, .galeria h2::after, .contato h2::after {
@@ -183,14 +182,14 @@ section {
     transform: translateX(-50%);
     width: 50px;
     height: 3px;
-    background: var(--secondary);
+    background: var(--accent);
 }
 .sobre p {
     max-width: 800px;
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--light);
 }
 
 .cardapio .cards {
@@ -201,7 +200,7 @@ section {
     max-width: 1200px;
 }
 .cardapio .card {
-    background: var(--light);
+    background: var(--primary);
     border-radius: 15px;
     box-shadow: 0 8px 20px var(--shadow);
     overflow: hidden;
@@ -219,7 +218,7 @@ section {
 }
 .cardapio .card h3 {
     margin: 1rem;
-    color: var(--primary);
+    color: var(--light);
 }
 .cardapio .card p {
     margin: 0 1rem 1rem;
@@ -247,7 +246,7 @@ section {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(42, 42, 42, 0.7);
     color: var(--light);
     border: none;
     padding: 1rem;
@@ -279,23 +278,23 @@ section {
 .contato h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--primary);
+    color: var(--light);
 }
 .contato p {
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--light);
 }
 .whatsapp-btn {
     display: inline-block;
     background: var(--accent);
-    color: white;
+    color: var(--light);
     padding: 0.75rem 1.5rem;
     border-radius: 25px;
     font-weight: 500;
     transition: background 0.3s;
 }
 .whatsapp-btn:hover {
-    background: #c49a6c; /* Tom mais escuro do marrom */
+    background: #b8651a;
 }
 .map {
     margin-top: 2rem;
@@ -368,4 +367,4 @@ html {
         opacity: 1;
         transform: translateY(0);
     }
-}
+            }
