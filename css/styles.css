@@ -120,7 +120,7 @@ section {
     text-align: center;
 }
 .home {
-    background: url('assets/images/fundo-home.jpg') center/cover no-repeat;
+    background: url('assets/images/fundo-home.png') center/cover no-repeat;
     background-attachment: fixed;
     position: relative;
     overflow: hidden;
